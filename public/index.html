@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Super Star Trek</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>⭐ Super Star Trek</h1>
+    </header>
+
+    <div id="main">
+      <div id="left-panel">
+        <div class="panel" id="quadrant-panel">
+          <h2>Kurzbereichsscan</h2>
+          <div id="quadrant-grid"></div>
+        </div>
+        <div class="panel" id="galaxy-panel">
+          <h2>Galaxiekarte</h2>
+          <div id="galaxy-grid"></div>
+        </div>
+      </div>
+
+      <div id="right-panel">
+        <div class="panel" id="status-panel">
+          <h2>Schiffsstatus</h2>
+          <div id="status"></div>
+        </div>
+        <div class="panel" id="log-panel">
+          <h2>Meldungen</h2>
+          <div id="log"></div>
+        </div>
+        <div class="panel" id="commands-panel">
+          <h2>Befehle</h2>
+          <div id="command-buttons">
+            <button onclick="sendCommand('srs', [])">Kurzbereichsscan</button>
+            <button onclick="sendCommand('lrs', [])">Langbereichsscan</button>
+            <button onclick="promptCommand('nav')">Navigation</button>
+            <button onclick="promptCommand('pha')">Phaser</button>
+            <button onclick="promptCommand('tor')">Torpedo</button>
+            <button onclick="promptCommand('she')">Schilde</button>
+            <button onclick="sendCommand('doc', [])">Andocken</button>
+            <button id="newgame-btn" onclick="newGame()">Neues Spiel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #111827;
+  color: #00ff88;
+  font-family: 'Courier New', monospace;
+  min-height: 100vh;
+}
+
+header {
+  background: #1a2236;
+  padding: 16px 24px;
+  border-bottom: 1px solid #00ff8844;
+}
+
+header h1 {
+  font-size: 1.6rem;
+  letter-spacing: 4px;
+  color: #00ff88;
+  text-shadow: 0 0 12px #00ff88;
+}
+
+#main {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  height: calc(100vh - 64px);
+}
+
+#left-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 340px;
+  flex-shrink: 0;
+}
+
+#right-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+.panel {
+  background: #1a2236;
+  border: 1px solid #00ff8833;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.panel h2 {
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  color: #00ff8899;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+/* Quadrant Grid */
+#quadrant-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 3px;
+}
+
+.sector {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  border-radius: 4px;
+  background: #1e2d45;
+}
+
+.sector.empty { color: #333366; }
+.sector.ship { color: #00ff88; text-shadow: 0 0 8px #00ff88; background: #003322; }
+.sector.klingon { color: #ff4444; text-shadow: 0 0 8px #ff4444; background: #330011; }
+.sector.starbase { color: #4488ff; text-shadow: 0 0 8px #4488ff; background: #001133; }
+.sector.star { color: #ffdd00; text-shadow: 0 0 8px #ffdd00; }
+
+/* Galaxy Grid */
+#galaxy-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 3px;
+}
+
+.quadrant-cell {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  border-radius: 4px;
+  background: #1e2d45;
+  color: #555588;
+  cursor: default;
+  border: 1px solid transparent;
+}
+
+.quadrant-cell.visited { color: #00ff8888; }
+.quadrant-cell.current { border-color: #00ff88; color: #00ff88; }
+.quadrant-cell.has-klingons { background: #220011; }
+
+/* Status */
+#status {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.stat {
+  background: #1e2d45;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.stat-label {
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  color: #00ff8866;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.stat-value {
+  font-size: 1.2rem;
+  color: #00ff88;
+  text-shadow: 0 0 8px #00ff8866;
+}
+
+.stat-value.danger { color: #ff4444; text-shadow: 0 0 8px #ff444466; }
+.stat-value.warning { color: #ffaa00; text-shadow: 0 0 8px #ffaa0066; }
+
+/* Log */
+#log-panel {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+#log {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.log-entry {
+  font-size: 0.85rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: #1e2d45;
+  color: #00ff88cc;
+  border-left: 2px solid #00ff8844;
+}
+
+.log-entry.warning { color: #ffaa00cc; border-left-color: #ffaa0066; }
+.log-entry.danger { color: #ff4444cc; border-left-color: #ff444466; }
+.log-entry.success { color: #00ff88; border-left-color: #00ff88; }
+
+/* Buttons */
+#command-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+button {
+  background: #111133;
+  color: #00ff88;
+  border: 1px solid #00ff8844;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+button:hover {
+  background: #003322;
+  border-color: #00ff88;
+  text-shadow: 0 0 8px #00ff88;
+  box-shadow: 0 0 8px #00ff8844;
+}
+
+#newgame-btn {
+  color: #ffaa00;
+  border-color: #ffaa0044;
+}
+
+#newgame-btn:hover {
+  background: #221100;
+  border-color: #ffaa00;
+}
+
+/* Scrollbar */
+#log::-webkit-scrollbar { width: 4px; }
+#log::-webkit-scrollbar-track { background: #0a0a1a; }
+#log::-webkit-scrollbar-thumb { background: #00ff8844; border-radius: 2px; }
